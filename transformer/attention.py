@@ -46,12 +46,13 @@ class MultiHeadAttention(nn.Module):
         different heads, each with shape (B, T, vec_length).
 
         Args:
-            x: torch.Tensor of shape (B, T, C), where C = num_heads * vec_length
+            x: torch.Tensor of sha pe (B, T, C), where C = num_heads * vec_length
             vec_length: int, the length of the query/key/value vectors
 
         Returns:
             torch.Tensor of shape (B, num_heads, T, vec_length)
         """
+        assert x.shape[2] / self.num_heads == vec_length
         raise NotImplementedError("Implement the split_heads method!")
         
 

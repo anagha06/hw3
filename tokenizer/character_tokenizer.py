@@ -22,8 +22,6 @@ class CharacterTokenizer(Tokenizer):
 
         for i in range(len(self.characters)):
             self.vocab[self.characters[i]] = i
-            
-        raise NotImplementedError("Need to implement vocab initialization and the two functions from tokenizer")
 
     def encode(self, text):
         text = text.lower()
@@ -36,6 +34,5 @@ class CharacterTokenizer(Tokenizer):
     def decode(self, word_arr):
         text = ""
         for char in word_arr:
-            index = torch.argmax(char)
-            text += self.characters[index]
+            text += self.characters[char]
         return text
